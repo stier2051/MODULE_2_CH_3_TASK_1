@@ -1,0 +1,91 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff !important;
+}
+
+h6, p {
+  margin: 0;
+}
+
+/* heading */
+
+.heading {
+  background-color: #14647e;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.add-task {
+  background-color: #14647e;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  margin-top: 20px;
+}
+
+.details {
+  background-color: #14647e;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+}
+
+
+.submit-btn {
+  background-color: #14647e;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+}
+
+.submit {
+  background-color: #1e1a5e;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.edit-btn {
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+}
+
+/* tasks */
+
+.newForm input, textarea, select {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.add-student {
+  margin-bottom: 20px;
+}
+
+input, textarea, select {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.student-list {
+  margin-top: 20px;
+}
+
+.students {
+  width: 600px;
+  margin: auto;
+  margin-top: 20px;
+}
