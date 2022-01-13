@@ -5,17 +5,19 @@ public class Student {
     private String name;
     private String surname;
     private String birthdate;
-    private String city;
+    private Long country_id;
+    private Long city_id;
 
     public Student() {
     }
 
-    public Student(Long id, String name, String surname, String birthdate, String city) {
+    public Student(Long id, String name, String surname, String birthdate, Long country_id, Long city_id) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthdate = birthdate;
-        this.city = city;
+        this.country_id = country_id;
+        this.city_id = city_id;
     }
 
     public Long getId() {
@@ -46,12 +48,20 @@ public class Student {
         this.birthdate = birthdate;
     }
 
-    public String getCity() {
-        return city;
+    public Long getCountry_id() {
+        return country_id;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCountry_id(Long country_id) {
+        this.country_id = country_id;
+    }
+
+    public Long getCity_id() {
+        return city_id;
+    }
+
+    public void setCity_id(Long city_id) {
+        this.city_id = city_id;
     }
 
     @Override
@@ -61,7 +71,8 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", birthdate='" + birthdate + '\'' +
-                ", city='" + city + '\'' +
+                ", country_id=" + country_id +
+                ", city_id=" + city_id +
                 '}';
     }
 }

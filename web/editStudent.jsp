@@ -1,4 +1,8 @@
-<%@ page import="kz.mun.decanat.model.Student" %><%--
+<%@ page import="kz.mun.decanat.model.Student" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="kz.mun.decanat.model.Country" %>
+<%@ page import="kz.mun.decanat.model.City" %>
+<%@ page import="kz.mun.decanat.db.DBManager" %><%--
   Created by IntelliJ IDEA.
   User: Alex
   Date: 17.10.2021
@@ -26,22 +30,30 @@
                     <p class="label">Surname</p>
                     <input type="text" value="<%=student.getSurname()%>" name="studentSurname">
                     <p class="label">Birthdate</p>
-                    <input type="text" value="<%=student.getBirthdate()%>" name="studentBirthdate">
+                    <input type="date" value="<%=student.getBirthdate()%>" name="studentBirthdate">
+                    <p class="label">Country</p>
+                    <select name="country">
+                        <option value="<%=student.getCountry_id()%>"><%=DBManager.getCountryByStudentId(student.getId())%></option>
+                        <%
+                            ArrayList<Country> countries = (ArrayList<Country>) request.getAttribute("countries");
+                            for (Country country : countries) {
+                        %>
+                        <option value="<%=country.getId()%>"><%=country.getName()%></option>
+                        <%
+                            }
+                        %>
+                    </select>
+                    <p class="label">City</p>
                     <select name="city">
-                        <option value="<%=student.getCity()%>"><%=student.getCity()%></option>
-                        <option value="Almaty">Alamty</option>
-                        <option value="Karaganda">Karaganda</option>
-                        <option value="Aktobe">Aktobe</option>
-                        <option value="Taldykorgan">Taldykorgan</option>
-                        <option value="Nur-Sultan">Nur-Sultan</option>
-                        <option value="Semey">Semey</option>
-                        <option value="Atyrau">Atyrau</option>
-                        <option value="Shymkent">Shymkent</option>
-                        <option value="Taraz">Taraz</option>
-                        <option value="Oskemen">Oskemen</option>
-                        <option value="Kokshetau">Kokshetau</option>
-                        <option value="Mangistau">Mangistau</option>
-                        <option value="Aktau">Aktau</option>
+                        <option value="<%=student.getCity_id()%>"><%=DBManager.getCityByStudentId(student.getId())%></option>
+                        <%
+                            ArrayList<City> cities = (ArrayList<City>) request.getAttribute("cities");
+                            for (City city : cities) {
+                        %>
+                        <option value="<%=city.getId()%>"><%=city.getName()%></option>
+                        <%
+                            }
+                        %>
                     </select>
                     <button type="submit" class="btn btn-success edit-btn">Save student</button>
                     <a href="/student-card?id=<%=student.getId()%>&do=student-card-view" class="btn btn-secondary edit-btn">Back</a>

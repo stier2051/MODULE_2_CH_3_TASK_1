@@ -12,17 +12,22 @@ import java.io.IOException;
 public class AddStudent extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("countries", DBManager.getAllCountries());
+        request.setAttribute("cities", DBManager.getAllCities());
         request.getRequestDispatcher("/addStudent.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String studentName = request.getParameter("studentName");
-        String studentSurname = request.getParameter("studentSurname");
-        String studentBD = request.getParameter("studentBirthdate");
-        String city = request.getParameter("city");
-
-        Student newStudent = new Student(null, studentName, studentSurname, studentBD, city);
+        request.setCharacterEncoding("utf-8");
+        Student newStudent = new Student(
+                null,
+                request.getParameter("studentName"),
+                request.getParameter("studentSurname"),
+                request.getParameter("studentBirthdate"),
+                Long.parseLong(request.getParameter("country")),
+                Long.parseLong(request.getParameter("city"))
+        );
         DBManager.addStudent(newStudent);
         response.sendRedirect("/main");
     }

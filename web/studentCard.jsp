@@ -1,4 +1,5 @@
-<%@ page import="kz.mun.decanat.model.Student" %><%--
+<%@ page import="kz.mun.decanat.model.Student" %>
+<%@ page import="kz.mun.decanat.db.DBManager" %><%--
   Created by IntelliJ IDEA.
   User: Alex
   Date: 18.10.2021
@@ -42,8 +43,13 @@
                     </tr>
                     <tr>
                         <th>5</th>
+                        <td class="table-active table-primary">Country:</td>
+                        <td><%=DBManager.getCountryByStudentId(student.getId())%></td>
+                    </tr>
+                    <tr>
+                        <th>6</th>
                         <td class="table-active table-primary">City:</td>
-                        <td><%=student.getCity()%></td>
+                        <td><%=DBManager.getCityByStudentId(student.getId())%></td>
                     </tr>
                     </tbody>
                 </table>

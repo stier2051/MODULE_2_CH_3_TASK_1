@@ -1,23 +1,20 @@
 package kz.mun.decanat.model;
 
-public class City {
+public class Country {
     private Long id;
     private String name;
     private String code;
-    private Long countryId;
 
-    public City() {
-
+    public Country() {
     }
 
-    public City(Long id, String name, String code, Long countryId) {
+    public Country(Long id, String name, String code) {
         this.id = id;
         this.name = name;
         this.code = code;
-        this.countryId = countryId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -37,21 +34,12 @@ public class City {
         this.code = code;
     }
 
-    public Long getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(Long countryId) {
-        this.countryId = countryId;
-    }
-
     @Override
     public String toString() {
-        return "City{" +
+        return "Country{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
-                ", countryId=" + countryId +
                 '}';
     }
 }

@@ -1,5 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="kz.mun.decanat.model.Student" %><%--
+<%@ page import="kz.mun.decanat.model.Student" %>
+<%@ page import="kz.mun.decanat.model.Country" %>
+<%@ page import="kz.mun.decanat.db.DBManager" %><%--
   Created by IntelliJ IDEA.
   User: Alex
   Date: 17.10.2021
@@ -31,6 +33,7 @@
                         <th scope="col">SURNAME</th>
                         <th scope="col">BIRTHDATE</th>
                         <th scope="col">CITY</th>
+                        <th scope="col">COUNTRY</th>
                         <th scope="col" class="text-center">DETAIL</th>
                     </tr>
                     </thead>
@@ -44,7 +47,8 @@
                         <td><%=student.getName()%></td>
                         <td><%=student.getSurname()%></td>
                         <td><%=student.getBirthdate()%></td>
-                        <td><%=student.getCity()%></td>
+                        <td><%=DBManager.getCityByStudentId(student.getId())%></td>
+                        <td><%=DBManager.getCountryByStudentId(student.getId())%></td>
                         <td class="text-center"><a href="/student-card?id=<%=student.getId()%>&do=student-card-view" class="btn btn-primary details">Details</a></td>
                     </tr>
                     <%
