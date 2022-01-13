@@ -1,22 +1,20 @@
-import db.DBManager;
-import model.Student;
+package kz.mun.decanat.servlets;
+
+import kz.mun.decanat.db.DBManager;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "delete-student", value = "/delete-student")
-public class DeleteStudent extends HttpServlet {
-
+@WebServlet(name = "main", value = "/main")
+public class MainPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Long id = Long.parseLong(request.getParameter("id"));
-        System.out.println(id);
         DBManager.connectToDb();
-        DBManager.deleteStudent(id);
-        request.getRequestDispatcher("main").forward(request, response);
+        request.setAttribute("students", DBManager.getAllStudents());
+        request.getRequestDispatcher("/studentsList.jsp").forward(request, response);
     }
 
     @Override

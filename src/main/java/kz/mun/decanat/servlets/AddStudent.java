@@ -1,4 +1,7 @@
-import db.DBManager;
+package kz.mun.decanat.servlets;
+
+import kz.mun.decanat.db.DBManager;
+import kz.mun.decanat.model.Student;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -9,7 +12,6 @@ import java.io.IOException;
 public class AddStudent extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         request.getRequestDispatcher("/addStudent.jsp").forward(request, response);
     }
 
@@ -20,8 +22,8 @@ public class AddStudent extends HttpServlet {
         String studentBD = request.getParameter("studentBirthdate");
         String city = request.getParameter("city");
 
-        DBManager.connectToDb();
-        DBManager.addStudent(studentName, studentSurname, studentBD, city);
-        request.getRequestDispatcher("/addStudent.jsp").forward(request, response);
+        Student newStudent = new Student(null, studentName, studentSurname, studentBD, city);
+        DBManager.addStudent(newStudent);
+        response.sendRedirect("/main");
     }
 }

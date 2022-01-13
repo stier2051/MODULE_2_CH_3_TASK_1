@@ -7,24 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&amp;subset=cyrillic" rel="stylesheet">
-    <!-- Bootstrap Reboot CSS -->
-    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="css/main.css">
-    <title>Add student</title>
-</head>
+<%@include file="head.jsp"%>>
 <body>
 <div class="container">
     <%@ include file="header.html"%>
     <div class="students">
         <div class="row">
             <div class="col">
-                <form method="post" class="newForm">
-                    <h5 class="add-student">Add new student</h5>
+                <form action="/add-student" method="post" class="newForm">
+                    <h5 class="add-student p-3 text-white">Add new student</h5>
                     <p class="label">Name</p>
                     <input type="text" name="studentName" class="studentName" placeholder="Insert name" class="new-student">
                     <p class="label">Surname</p>
@@ -32,7 +23,7 @@
                     <p class="label">Birthdate</p>
                     <input type="date" name="studentBirthdate" class="studentName" class="new-student">
                     <select name="city">
-                        <option value="Almaty">Alamty</option>
+                        <option value="Almaty">Almaty</option>
                         <option value="Karaganda">Karaganda</option>
                         <option value="Aktobe">Aktobe</option>
                         <option value="Taldykorgan">Taldykorgan</option>

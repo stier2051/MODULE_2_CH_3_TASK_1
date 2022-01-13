@@ -1,4 +1,4 @@
-package model;
+package kz.mun.decanat.model;
 
 public class Student {
     private Long id;
@@ -8,14 +8,6 @@ public class Student {
     private String city;
 
     public Student() {
-
-    }
-
-    public Student(String name, String surname, String birthdate, String city) {
-        this.name = name;
-        this.surname = surname;
-        this.birthdate = birthdate;
-        this.city = city;
     }
 
     public Student(Long id, String name, String surname, String birthdate, String city) {
